@@ -1,0 +1,32 @@
+<apex:page standardController="Prescription__c" extensions="PrescriptionClass" showHeader="false" sidebar="false">
+    <apex:form >
+      <apex:pageBlock rendered="{!flag}">
+         <apex:pageBlockSection >
+             <apex:inputField label="Patient" value="{!Prescription__c.Patient__c}"/> 
+             
+             <apex:inputField label="In-Patient" value="{!Prescription__c.In_Patient__c}"/>
+             <apex:inputField label="Appointment" value="{!Prescription__c.Appointment__c}"/>
+             <apex:inputField label="Medicines" value="{!Prescription__c.Medicines__c}"/>
+             <apex:inputField label="Problem Description" value="{!Prescription__c.Problem_Description__c}"/>
+            <apex:inputField label="Lab tests" value="{!Prescription__c.Lab_tests__c}"/>
+         </apex:pageBlockSection>  
+          <apex:pageBlockButtons location="bottom">
+             <apex:commandButton value="Save" action="{!Save}" styleClass="slds-button slds-button_success"/>
+             
+          </apex:pageBlockButtons>
+          </apex:pageBlock>
+          <apex:pageBlock rendered="{!flag1}">
+         <apex:pageBlockSection >
+             <apex:outputField label="Patient" value="{!Prescription__c.Patient__c}"/>  
+             <apex:outputField label="In-Patient" value="{!Prescription__c.In_Patient__c}"/>
+             <apex:outputField label="Appointment" value="{!Prescription__c.Appointment__c}"/>
+             <apex:outputField label="Medicines" value="{!Prescription__c.Medicines__c}"/>
+             <apex:outputField label="Problem Description" value="{!Prescription__c.Problem_Description__c}"/>
+             <apex:outputField label="Lab tests" value="{!Prescription__c.Lab_tests__c}"/>
+         </apex:pageBlockSection>  
+            
+        </apex:pageBlock>
+      
+          
+    </apex:form>
+</apex:page>

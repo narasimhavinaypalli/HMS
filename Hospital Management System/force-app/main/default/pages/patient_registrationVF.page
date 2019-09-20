@@ -1,0 +1,30 @@
+<apex:page showHeader="false" sidebar="false">
+    <apex:form >
+      <apex:pageBlock >
+          <apex:pageBlockSection >
+           
+              <apex:inputText label="Name"></apex:inputText> 
+           <apex:selectList label="Gender" multiselect="false" size="1">
+              <apex:selectOption itemValue="Male" itemLabel="Male"></apex:selectOption>
+              <apex:selectOption itemValue="Female" itemLabel="Female"></apex:selectOption>
+          </apex:selectList>
+           <apex:selectList label="Blood Group" multiselect="false" size="1">
+              <apex:selectOption itemValue="A+" itemLabel="A+"></apex:selectOption>
+              <apex:selectOption itemValue="A-" itemLabel="A-"></apex:selectOption>
+              <apex:selectOption itemValue="B+" itemLabel="B+"></apex:selectOption>
+              <apex:selectOption itemValue="B-" itemLabel="B-"></apex:selectOption>
+              <apex:selectOption itemValue="AB+" itemLabel="AB+"></apex:selectOption>
+              <apex:selectOption itemValue="AB-" itemLabel="AB-"></apex:selectOption>
+              <apex:selectOption itemValue="O+" itemLabel="O+"></apex:selectOption>
+              <apex:selectOption itemValue="O-" itemLabel="O-"></apex:selectOption>
+          </apex:selectList><br/>
+          <apex:inputText label="Age"></apex:inputText>
+          <apex:inputText label="Phone"></apex:inputText>
+          <apex:inputText label="Weight"></apex:inputText>
+          </apex:pageBlockSection>
+          <apex:pageBlockButtons location="bottom">
+              <apex:commandButton title="Save" value="Save" />
+          </apex:pageBlockButtons>
+      </apex:pageBlock>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,66 @@
+<apex:page title="Hospital Management Application" sidebar="false" showHeader="false" applyBodyTag="false">
+    
+    <style>
+        body {
+            background-image: url("{!$Resource.background}");
+            background-repeat:no-repeat
+            height:100%;
+            background-size: cover;
+            opacity:0.9;
+            
+        }
+        
+        input[type=text], textarea {
+            -webkit-transition: all 0.30s ease-in-out;
+            -moz-transition: all 0.30s ease-in-out;
+             -ms-transition: all 0.30s ease-in-out;
+             -o-transition: all 0.30s ease-in-out;
+              outline: none;
+              padding: 3px 0px 3px 3px;
+               margin: 5px 1px 3px 0px;
+              border: 1px solid #DDDDDD;
+}
+ 
+       input[type=text]:focus, textarea:focus {
+          box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+          padding: 3px 0px 3px 3px;
+          margin: 5px 1px 3px 0px;
+         border: 1px solid rgba(81, 203, 238, 1);
+     }
+   </style>     
+    
+    <apex:pageBlock >
+            <div class="slds-scope">
+       <apex:slds />
+        
+        <apex:tabPanel width="102%">
+            <apex:tab label="Home Page">
+               <apex:include pageName="Main_page"/>  
+          </apex:tab>
+          <apex:tab label="Patient Registration">
+             <apex:include pageName="patient_search_vf"/> 
+          </apex:tab>
+          <apex:tab label="Book Appointment" >
+            <apex:include pageName="book_appointment"/> 
+              </apex:tab>
+             <apex:tab label="Prescriptions" >
+             <apex:include pageName="PrescriptionVF"/> 
+          </apex:tab>
+          <apex:tab label="In Patient">
+            <apex:include pageName="InPatientVF"/> 
+            </apex:tab>
+            <apex:tab label="Lab Reports" >
+             <apex:include pageName="LabReportsVF"/> 
+          </apex:tab>
+        <apex:tab label="Billings">
+        <apex:include pageName="BillingVF"/>
+        </apex:tab>
+            <apex:tab label="Doctors" >
+             <apex:include pageName="doctor_search_vf"/> 
+          </apex:tab>
+            
+          
+        </apex:tabPanel>
+            </div>
+  </apex:pageBlock>
+</apex:page>

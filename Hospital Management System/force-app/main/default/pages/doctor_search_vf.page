@@ -1,0 +1,50 @@
+<apex:page standardController="Doctor__c" extensions="doctor_search_apex" showHeader="false" sidebar="false">
+    <apex:form >
+        <apex:pageMessages />
+      <apex:pageBlock title="Search Doctor" id="doctor" rendered="{!flag}"> 
+          <apex:pageBlockSection >
+             <apex:pageBlockSectionItem helpText="Mandatory" >
+              <apex:outputLabel value="Doctor name" ></apex:outputLabel>
+                  <apex:inputText value="{!name}" />              
+              </apex:pageBlockSectionItem>
+               <apex:pageBlockSectionItem helpText="Mandatory" >
+              <apex:outputLabel value="Specialization" ></apex:outputLabel>
+                   <apex:inputtext value="{!specialization}"/>             
+              </apex:pageBlockSectionItem>
+               <apex:pageBlockSectionItem helpText="Not Mandatory" >
+              <apex:outputLabel value="Doctor Degree"></apex:outputLabel>
+                 <apex:inputText value="{!doctordegree}"/>             
+              </apex:pageBlockSectionItem>
+      </apex:pageBlockSection>
+          <apex:pageBlockButtons location="bottom" >
+          <apex:commandButton value="search" action="{!Dynamicsearch}" styleClass="slds-button slds-button_brand"/>  &nbsp; &nbsp;
+              <apex:commandButton value="New" action="{!newdoctor}" styleClass="slds-button slds-button_success"/>
+               <apex:commandButton value="Cancel" action="{!cancel}" styleClass="slds-button slds-button_destructive"/>
+              </apex:pageBlockButtons>
+        </apex:pageBlock>
+        <apex:pageBlock title="Result" rendered="{!flag1}">
+           <apex:pageBlockTable value="{!doctor}" var="a">
+               <apex:column value="{!a.name}"/>
+               <apex:column value="{!a.Specialization__c}"/>
+               <apex:column value="{!a.Doctor_Degree__c}"/> 
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+       <apex:pageBlock title="New Doctor" rendered="{!flag2}" >
+          
+           <apex:pageBlockSection >
+               <apex:inputfield label="Name" value="{!Doctor__c.Name}"/> 
+               <apex:inputfield label="Specialization" value="{!Doctor__c.Specialization__c}"/>
+                <apex:inputfield label="Doctor available from" value="{!Doctor__c.Doctor_available_from__c}"/>
+                <apex:inputfield label="Doctor available to" value="{!Doctor__c.Doctor_available_to__c}"/>
+                <apex:inputfield label="Doctor Degree" value="{!Doctor__c.Doctor_Degree__c}" />
+                <apex:inputfield label="Available" value="{!Doctor__c.Available__c}"/>
+                <apex:inputfield label="Doctor Fee" value="{!Doctor__c.Doctor_Fee__c}"/>
+               </apex:pageBlockSection>
+               <apex:pageBlockButtons location="bottom">
+                   <apex:commandButton value="Save" action="{!saveme}" styleClass="slds-button slds-button_success"/>
+                   <apex:commandButton value="Cancel" action="{!cancel}" styleClass="slds-button slds-button_destructive"/>   
+                
+               </apex:pageBlockButtons>
+      </apex:pageBlock>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,8 @@
+<apex:page showHeader="false" >
+    <a href="/apex/ezshopindex"><apex:image id="theImage" value="{!$Resource.HMS_logo}" width="25%" /></a>
+     <span class="top-bar">
+               <div>
+                   <a href="/apex/ezshopindex"><apex:image id="theImage1" value="{!$Resource.HMS_logo}" width="45%"/></a>
+               </div>
+               </span>
+</apex:page>

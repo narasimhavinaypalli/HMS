@@ -1,0 +1,59 @@
+<apex:page standardController="Patient__c" extensions="patient_search_apex">
+    
+    <apex:form >
+        <apex:pageMessages />
+      <apex:pageBlock title="Search Patient" rendered="{!flag}">
+          
+          <apex:pageBlockSection >
+              <apex:pageBlockSectionItem >
+              <apex:outputLabel value="Patient name" ></apex:outputLabel>
+                  <apex:inputText value="{!name}" />              
+              </apex:pageBlockSectionItem>
+               <apex:pageBlockSectionItem >
+              <apex:outputLabel value="Phone No" ></apex:outputLabel>
+                   <apex:inputtext value="{!phone}"/>             
+              </apex:pageBlockSectionItem>
+               <apex:pageBlockSectionItem >
+              <apex:outputLabel value="Email Id"></apex:outputLabel>
+                 <apex:inputText value="{!email}"/>             
+              </apex:pageBlockSectionItem>
+           </apex:pageBlockSection>
+          
+          <apex:pageBlockButtons location="bottom" >
+          <apex:commandButton value="search" action="{!Dynamicsearch}" styleClass="slds-button slds-button_brand"/>  &nbsp; &nbsp;
+              <apex:commandButton value="New" action="{!newpatient}" styleClass="slds-button slds-button_success"/>
+              <apex:commandButton value="Clear" action="{!cancel}" styleClass="slds-button slds-button_destructive"/>
+             	
+              </apex:pageBlockButtons>
+          
+        </apex:pageBlock>
+        <apex:pageBlock title="Result" rendered="{!flag1}">
+           <apex:pageBlockTable value="{!patient}" var="a">
+               <apex:column value="{!a.name}"/>
+               <apex:column value="{!a.Phone__c}"/>
+               <apex:column value="{!a.Email__c}"/> 
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+        
+        
+       <apex:pageBlock title="New Patient" rendered="{!flag2}">
+           
+           <apex:pageBlockSection >
+               <apex:inputfield label="Name" value="{!Patient__c.Name}"/> 
+               <apex:inputfield label="Gender" value="{!Patient__c.Gender__c}"/>
+               <apex:inputfield label="Blood Group" value="{!Patient__c.Blood_Group__c}" />
+                <apex:inputfield label="Age" value="{!Patient__c.Age__c}"/>
+               <apex:inputfield label="Phone" value="{!Patient__c.Phone__c}"/>
+                <apex:inputfield label="Weight" value="{!Patient__c.Weight__c}"/>
+                <apex:inputfield label="Email" value="{!Patient__c.Email__c}"/>
+               </apex:pageBlockSection>
+               <apex:pageBlockButtons location="bottom">
+                   <apex:commandButton value="Save" action="{!saveme}" styleClass="slds-button slds-button_outline-brand"/>
+                   <apex:commandButton value="Cancel" action="{!cancel}" styleClass="slds-button slds-button_destructive"/>
+                  
+               </apex:pageBlockButtons>
+      </apex:pageBlock>
+        
+        
+    </apex:form>
+</apex:page>

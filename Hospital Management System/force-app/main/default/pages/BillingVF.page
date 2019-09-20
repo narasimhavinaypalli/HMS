@@ -1,0 +1,37 @@
+<apex:page standardController="Billing__c" extensions="renderBillingClass" showHeader="false" sidebar="false">
+    <script>
+    function myFunction() {
+    window.print();
+    }
+   </script>
+    <apex:form >
+    <apex:pageBlock rendered="{!flag}" >
+        <apex:pageMessages />
+      <apex:pageBlockSection >
+        <apex:inputField label="In-Patient" value="{!Billing__c.In_Patient__c}" />
+        <apex:inputField label="Lab Report" value="{!Billing__c.Lab_Report__c}"/>
+        <apex:inputField label="Payment Mode" value="{!Billing__c.Payment_Mode__c}"/>
+        <apex:inputField label="Patient" value="{!Billing__c.Patient__c}"/>
+      </apex:pageBlockSection>
+        <apex:pageBlockButtons location="bottom">
+         <apex:commandButton value="Show bill" action="{!showbill}" styleClass="slds-button slds-button_success"/>
+        </apex:pageBlockButtons>
+    </apex:pageBlock>
+      
+    <apex:pageBlock rendered="{!flag1}" >
+       <apex:pageBlockSection >
+           <apex:outputField label="Billing Id" value="{!Billing__c.Name}"/>
+           <apex:outputField value="{!Billing__c.Patient__c}"/>
+            <apex:outputField value="{!Billing__c.In_Patient__c}"/>
+           <apex:outputField value="{!Billing__c.Number_of_Days_Spent__c}"/>
+           <apex:outputField value="{!Billing__c.Tests_Amount__c}"/>
+            <apex:outputField value="{!Billing__c.Actual_Amount__c}"/>
+            <apex:outputField value="{!Billing__c.Advance_Amount__c}"/>
+           <apex:outputField value="{!Billing__c.Total_Amount_to_be_paid__c}"/>
+         </apex:pageBlockSection>
+        <apex:pageBlockButtons location="bottom">
+              <apex:commandButton onclick="myFunction()" value="Print" styleClass="slds-button slds-button_brand"/>
+           </apex:pageBlockButtons>
+     </apex:pageBlock>
+   </apex:form>
+</apex:page>

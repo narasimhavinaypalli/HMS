@@ -1,0 +1,32 @@
+<apex:page standardController="In_Patient__c" extensions="InPatientCLASS" showHeader="false" sidebar="false" >
+   <apex:form >
+        <apex:pageBlock rendered="{!flag}">
+             <apex:pageBlockSection >
+               <apex:inputField label="Patient" value="{!In_Patient__c.Patient__c}"/>
+               <apex:inputField label="Room" value="{!In_Patient__c.Room__c}"/>
+               <apex:inputField label="Prescription" value="{!In_Patient__c.Prescription__c}"/>
+               <apex:inputField label="Date of Admission" value="{!In_Patient__c.Date_of_Admission__c}"/>
+               <apex:inputField label="Advance Amount" value="{!In_Patient__c.Advance_Amount__c}"/>
+                 <apex:inputField label="Guardian Name" value="{!In_Patient__c.Guardian_Name__c}"/>
+                   <apex:inputField label="Guardian Phone" value="{!In_Patient__c.Guardian_Phone__c}"/>
+            </apex:pageBlockSection>
+       <apex:pageBlockButtons location="bottom">
+       <apex:commandButton value="Save" action="{!save}" styleClass="slds-button slds-button_success"/>
+       </apex:pageBlockButtons>
+    </apex:pageBlock>
+       
+       <apex:pageBlock rendered="{!flag1}" >
+       <apex:pageBlockSection >
+            <apex:outputField value="{!In_Patient__c.Patient__c}"/>
+            <apex:outputField value="{!In_Patient__c.Room__c}"/>
+            <apex:outputField value="{!In_Patient__c.Date_of_Admission__c}"/>
+            <apex:outputField value="{!In_Patient__c.Prescription__c}"/>
+            <apex:outputField value="{!In_Patient__c.Advance_Amount__c}"/>
+            <apex:outputField value="{!In_Patient__c.Guardian_Name__c}"/>
+            <apex:outputField value="{!In_Patient__c.Guardian_Phone__c}"/>
+       </apex:pageBlockSection>
+     <apex:pageBlockButtons location="bottom">
+           </apex:pageBlockButtons>
+       </apex:pageBlock>
+  </apex:form> 
+</apex:page>

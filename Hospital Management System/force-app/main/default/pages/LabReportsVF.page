@@ -1,0 +1,27 @@
+<apex:page standardController="Lab_Report__c" extensions="Lab_Reports" showHeader="false" sidebar="false">
+    <apex:form >
+      <apex:pageBlock rendered="{!flag}">
+         <apex:pageBlockSection >
+              <apex:inputField label="Test Names" value="{!Lab_Report__c.Test_Names__c}"/>
+              <apex:inputField label="Prescription" value="{!Lab_Report__c.Prescription__c}"/> 
+              <apex:inputField label="Tests Amount" value="{!Lab_Report__c.Tests_Amount__c}"/>  
+              <apex:inputField label="Date of Test" value="{!Lab_Report__c.Date_of_Test__c}"/>  
+              <apex:inputField label="Test Results" value="{!Lab_Report__c.Test_Results__c}"/>
+              <apex:inputField label="In-Patient" value="{!Lab_Report__c.In_Patient__c}"/>  
+          </apex:pageBlockSection> 
+        <apex:pageBlockButtons location="bottom">
+          <apex:commandButton title="save" value="save" action="{!save}" styleClass="slds-button slds-button_success"/>
+        </apex:pageBlockButtons>
+       </apex:pageBlock>
+        <apex:pageBlock rendered="{!flag1}">
+         <apex:pageBlockSection >
+              <apex:outputField label="Test Names" value="{!Lab_Report__c.Test_Names__c}"/>
+              <apex:outputField label="Prescription" value="{!Lab_Report__c.Prescription__c}"/> 
+              <apex:outputField label="Tests Amount" value="{!Lab_Report__c.Tests_Amount__c}"/>  
+              <apex:outputField label="Date of Test" value="{!Lab_Report__c.Date_of_Test__c}"/>  
+              <apex:outputField label="Test Results" value="{!Lab_Report__c.Test_Results__c}"/>
+              <apex:outputField label="In-Patient" value="{!Lab_Report__c.In_Patient__r.name}"/>  
+          </apex:pageBlockSection> 
+       </apex:pageBlock>
+    </apex:form>
+</apex:page>

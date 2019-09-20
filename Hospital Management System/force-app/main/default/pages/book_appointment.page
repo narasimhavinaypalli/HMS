@@ -1,0 +1,60 @@
+<apex:page standardController="Appointment__c" extensions="book_appointment_apex" id="newappointment">
+    <script>
+    function myFunction() {
+    window.print();
+    }
+   </script>
+    <apex:form >
+          <apex:pageMessages />
+        <apex:pageBlock rendered="{!flag}"  >
+          <font color="#2980B9">
+            <apex:facet name="header">
+                <center>
+            <span style="font-size:42px"  >New Appointment</span>
+                    </center>
+            </apex:facet>
+            </font>
+            <apex:pageBlockSection >
+                <apex:inputfield label="Doctor" value="{!Appointment__c.Doctor__c}"/>                  
+                <apex:inputfield label="Patient" value="{!Appointment__c.Patient__c}"/>
+                <apex:inputfield label="Appointment Date" value="{!Appointment__c.Appointment_Date__c}"/>
+                <apex:inputfield label="Appointment Time" value="{!Appointment__c.Appointment_Time__c}"/>
+            </apex:pageBlockSection>  
+            <apex:pageBlockButtons location="bottom">
+                <apex:commandButton value="Book Appointment" action="{!bookAppointment}" styleClass="slds-button slds-button_success"/>  
+            </apex:pageBlockButtons>
+        </apex:pageBlock> 
+        
+        <apex:pageBlock rendered="{!flag1}" title="Doctors Available">
+            <apex:pageBlockTable value="{!Doctors}" var="d" >
+                <apex:column value="{!d.name}">  
+                    <apex:facet name="header">Name</apex:facet>
+                </apex:column>
+                <apex:column value="{!d.Doctor_available_from__c}">
+                    <apex:facet name="header">Available from</apex:facet>
+                </apex:column>
+                <apex:column value="{!d.Doctor_available_to__c}">
+                    <apex:facet name="header">Available to</apex:facet>
+                </apex:column>
+                <apex:column value="{!d.Available__c}">
+                    <apex:facet name="header">Available Today</apex:facet>
+                </apex:column>
+                
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+        
+        <apex:pageBlock rendered="{!flag2}">
+            <apex:pageBlockSection >
+                <apex:outputField label="Doctor name" value="{!Appointment__c.Doctor__c}" />
+                <apex:outputField label="Patient name" value="{!Appointment__c.Patient__c}"/>
+                <apex:outputField label="Appointment date" value="{!Appointment__c.Appointment_Date__c}"/>
+                <apex:outputField label="Appointment Time" value="{!Appointment__c.Appointment_Time__c}"/>
+            </apex:pageBlockSection> 
+            <apex:pageBlockButtons location="bottom" >
+                <apex:commandButton value="Back" action="{!back}" styleClass="slds-button slds-button_text-destructive"/>
+              <apex:commandButton onclick="myFunction()" value="Print" />
+           
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

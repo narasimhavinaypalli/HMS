@@ -1,0 +1,17 @@
+<apex:page standardController="Lab_Report__c" sidebar="false" showHeader="false">
+    <apex:form >
+      <apex:pageBlock >
+         <apex:pageBlockSection >
+             <apex:inputField label="In-Patient" value="{!Lab_Report__c.In_Patient__c}"/>
+             <apex:inputField label="Prescription" value="{!Lab_Report__c.Prescription__c}"/>
+             <apex:inputField label="Date of Test" value="{!Lab_Report__c.Date_of_Test__c}"/>
+             <apex:inputField label="Test Names" value="{!Lab_Report__c.Test_Names__c}"/>
+             <apex:inputField label="Test Results"  value="{!Lab_Report__c.Test_Results__c}"/>
+             <apex:inputField label="Tests Amount" value="{!Lab_Report__c.Tests_Amount__c}"/>
+           </apex:pageBlockSection>  
+        <apex:pageBlockButtons location="bottom">
+          <apex:commandButton value="Save" action="{!save}" styleClass="slds-button slds-button_success"/>
+          </apex:pageBlockButtons>
+     </apex:pageBlock>
+    </apex:form>
+</apex:page>
